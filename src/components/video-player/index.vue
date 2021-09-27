@@ -1,7 +1,7 @@
 <!--
  * @Author: Hclle
  * @Date: 2021-08-11 14:23:37
- * @LastEditTime: 2021-08-12 17:00:40
+ * @LastEditTime: 2021-09-27 16:26:44
  * @LastEditors: Hclle
  * @Description: 
 -->
@@ -58,7 +58,9 @@ export default defineComponent({
     };
     // 跳转视频结尾
     const onJumpEnd = () => {
+      // TODO 有些视频会跳转不到结尾最后一帧，在当前帧下就结束播放
       nextTick(() => {
+        video.value.play();
         video.value.currentTime = Math.round(video.value.duration);
       });
     };
